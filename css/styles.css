@@ -398,48 +398,59 @@ select {
 
 /* Premium Minimal Badge - Refined & Modern */
 .hero-text .badge {
-    background: rgba(18, 18, 18, 0.75);
-    /* Specific Premium Dark */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    /* Ultra-thin subtle border */
-    border-radius: 40px;
+    border-radius: 999px;
+    height: 32px;
     font-size: 13px;
-    /* Clean & Sharp */
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
-    padding: 6px 16px;
-    /* Specific Padding */
-    color: #f5f5f5;
-    font-weight: 600;
-    /* Semi-Bold */
+    padding: 0 14px;
+    color: #EAEAEA;
+    font-weight: 500;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    gap: 7px;
+    box-shadow: none;
     transition: all 0.25s ease;
     will-change: transform;
 }
 
-.status-dot {
+.hero-text .status-dot {
     display: block;
-    width: 6px;
-    height: 6px;
-    background-color: #f2f2f2;
-    /* Soft White */
+    width: 7px;
+    height: 7px;
+    background-color: #C4B5FD;
     border-radius: 50%;
     box-shadow: none;
-    /* No Glow */
     opacity: 1;
-    /* Solid & Intentional */
+    animation: minimal-blink 2s ease-in-out infinite;
+}
+
+@keyframes minimal-blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
 }
 
 /* Fix for potential double dots */
 .hero-text .badge::before,
-.hero-text .badge::after,
-.status-dot::before,
-.status-dot::after {
+.hero-text .badge::after {
+    display: none !important;
+    content: none !important;
+}
+
+.hero-text .status-dot::before,
+.hero-text .status-dot::after {
     display: none !important;
     content: none !important;
 }
@@ -473,45 +484,36 @@ select {
 }
 
 /* Controlled Cinematic Typography */
-/* Elegant Authority Typography */
 /* Elegant Authority Typography - Bigger & Naturally Blended */
 .hero-text h1 {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    line-height: 1.05;
+    font-family: 'Monument Extended', var(--font-heading);
+    font-weight: 500;
+    line-height: 0.9;
     margin-bottom: 1.5rem;
-    /* Tighter spacing */
     text-transform: uppercase;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    letter-spacing: -0.02em;
+    letter-spacing: -1px;
 }
 
 .title-line-1 {
     display: block;
-    color: rgba(255, 255, 255, 0.95);
-    /* Almost solid, anchoring */
+    color: #F1F1F1;
     font-size: clamp(3.5rem, 8vw, 7rem);
-    /* Safely clamped */
     opacity: 0;
     transform: translateY(10px);
+    text-shadow: none;
 }
 
 .title-line-2 {
     display: block;
     font-size: clamp(3.8rem, 8.5vw, 7.5rem);
-    /* Slightly larger */
-    /* Translucent "Frost" Gradient for Natural Blend */
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0.5) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #F1F1F1;
     opacity: 0;
     transform: translateY(10px);
-    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.1));
-    /* Softened Glow */
+    text-shadow: none;
     padding-bottom: 10px;
 }
 
@@ -595,34 +597,58 @@ select {
         display: flex;
     }
 
+    .hero-text .badge-wrapper,
+    .hero-text .badge {
+        margin-bottom: 18px;
+    }
+
     .hero-text h1 {
-        font-size: clamp(2.5rem, 9vw, 4.5rem);
-        /* Slightly smaller for better fit */
-        margin-bottom: 2rem;
-        /* 30px */
+        margin-bottom: 16px;
+        line-height: 0.92;
+        letter-spacing: -0.5px;
+    }
+
+    .title-line-1,
+    .title-line-2 {
+        font-size: 34px;
     }
 
     .hero-text .subtitle {
-        font-size: 1.1rem;
+        font-size: 14px;
+        line-height: 1.55;
+        max-width: 85%;
+        margin: 0 auto 18px auto;
     }
 
-    .hero-text .tagline {
-        font-size: 0.9rem;
+    .signature-text {
+        font-size: 11px;
+        opacity: 0.75;
         letter-spacing: 0.1em;
-        gap: 0.75rem;
-        /* 12px */
+        margin-top: 0;
+        gap: 0;
     }
 
-    .hero-text .tagline::before,
-    .hero-text .tagline::after {
-        width: 1.875rem;
-        /* 30px */
+    .signature-wrapper {
+        gap: 0;
+    }
+
+    .signature-wrapper .signature-line {
+        display: none;
     }
 
     /* Mobile Badge Override */
     .hero-text .badge {
-        padding: 7px 16px;
-        font-size: 0.9rem;
+        height: 24px;
+        padding: 0 10px;
+        font-size: 10.5px;
+        letter-spacing: 0.8px;
+        gap: 5px;
+        border-radius: 999px;
+    }
+
+    .hero-text .status-dot {
+        width: 5px;
+        height: 5px;
     }
 }
 
